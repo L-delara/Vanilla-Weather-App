@@ -13,13 +13,143 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/db65ab9bdc.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Vanilla Weather App</title>
   </head>
   <body>
-    <div class="container">
-      <h1>WEATHER!</h1>
+    <div class="app-box">
+      <form id="city-search">
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="search new city"
+            autocomplete="off"
+            autofocus="on"
+            id="search-text-input"
+          />
+          <input type="submit" value="🔍" />
+          <button id="find-me">
+            <i class="fas fa-map-marker-alt"></i>
+          </button>
+        </div>
+      </form>
+      <br />
+      <div class="card-group">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title" id="current-city"></h5>
+            <p class="card-text">
+              <span id="today-description"></span>
+              <br />
+              <i class="fas fa-sun header-sun"></i>
+              <span class="heading-temp" id="today-temp"> </span>
+              <span class="convert-units"
+                ><a href="#" id="fahrenheit-link">°F</a> |
+                <a href="#" id="celsius-link">°C</a></span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title" id="weather-time-now">Currently</h5>
+            <p class="card-text">
+              Humidity: <span id="humidity"></span>%
+              <br />
+              Wind: <span id="windy"></span> km/h<br />
+              Feels Like: <span id="feels-like"></span>°<br />
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div class="next-five">
+        <div class="row">
+          <div class="col">MONDAY</div>
+          <div class="col">TUESDAY</div>
+          <div class="col">WEDNESDAY</div>
+          <div class="col">THURSDAY</div>
+          <div class="col">FRIDAY</div>
+        </div>
+      </div>
+
+      <div class="card-group">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-sun sunny-icon"></i>
+            </h5>
+            <p class="card-text">
+              <strong>81°</strong> / 56° <br />
+              <small><i class="fas fa-tint"></i> 8%</small>
+            </p>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-cloud-showers-heavy shower-icon"></i>
+            </h5>
+            <p class="card-text">
+              <strong>81°</strong> / 56° <br />
+              <small><i class="fas fa-tint"></i> 89%</small>
+            </p>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-cloud-sun partly-sunny-icon"></i>
+            </h5>
+            <p class="card-text">
+              <strong>81°</strong> / 56° <br />
+              <small><i class="fas fa-tint"></i> 22%</small>
+            </p>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-cloud-sun partly-sunny-icon"></i>
+            </h5>
+            <p class="card-text">
+              <strong>81°</strong> / 56° <br />
+              <small><i class="fas fa-tint"></i> 26%</small>
+            </p>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-cloud cloudy-icon"></i>
+            </h5>
+            <p class="card-text">
+              <strong>81°</strong> / 56° <br />
+              <small><i class="fas fa-tint"></i> 45%</small>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="credits">
+        <a href="https://github.com/L-delara/weather-app" target="_blank">
+          An open-source code</a
+        >, by Ligia De Lara
+      </div>
+    </div>
+
     <script src="src/app.js"></script>
   </body>
 </html>

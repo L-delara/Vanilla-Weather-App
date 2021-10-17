@@ -1,3 +1,61 @@
-h1 {
-  color: blueviolet;
+body {
+  background-image: radial-gradient(
+    circle,
+    #fca497,
+    #f8a39f,
+    #f3a4a7,
+    #eea4ad,
+    #e7a5b3,
+    #e0a6b9,
+    #d9a7be,
+    #d1a8c2,
+    #c7aac6,
+    #bdacc8,
+    #b4adc7,
+    #acaec5
+  );
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+.app-box {
+  max-width: 590px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px solid #ea94ffbb;
+  border-radius: 10px;
+}
+.card-group {
+  opacity: 0.55;
+}
+.search-bar {
+  margin-top: 10px;
+}
+#search-text-input {
+  opacity: 0.5;
+}
+h5 {
+  font-weight: 700;
+}
+.header-sun {
+  font-size: 55px;
+  color: rgba(231, 14, 6, 0.952);
+}
+
+.next-five {
+  color: rgba(28, 30, 32, 0.589);
+  font-weight: 600;
+}
+.convert-units {
+  font-size: 20px;
+  color: #113b34c5;
+}
+.heading-temp {
+  font-size: 50px;
+}
+#today-description {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+#credits {
+  font-size: small;
 }
