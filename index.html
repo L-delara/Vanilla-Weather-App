@@ -36,12 +36,16 @@
             type="text"
             placeholder="search new city"
             autocomplete="off"
-            autofocus="on"
+            autofocus="off"
             id="search-text-input"
           />
-          <input type="submit" value="🔍" />
-          <button id="find-me">
-            <i class="fas fa-map-marker-alt"></i>
+          <input
+            type="submit"
+            class="btn btn-outline-light btn-sm"
+            value="🔍"
+          />
+          <button id="find-me" class="btn btn-outline-light btn-sm">
+            🌍
           </button>
         </div>
       </form>
@@ -53,7 +57,7 @@
             <p class="card-text">
               <span id="today-description"></span>
               <br />
-              <i class="fas fa-sun header-sun"></i>
+              <img src="" alt="Clear" id="icon" class="float-left" />
               <span class="heading-temp" id="today-temp"> </span>
               <span class="convert-units"
                 ><a href="#" id="fahrenheit-link">°F</a> |
@@ -68,7 +72,7 @@
             <p class="card-text">
               Humidity: <span id="humidity"></span>%
               <br />
-              Wind: <span id="windy"></span> km/h<br />
+              Wind: <span id="windy"></span> mph<br />
               Feels Like: <span id="feels-like"></span>°<br />
             </p>
           </div>
@@ -146,7 +150,12 @@
       <div id="credits">
         <a href="https://github.com/L-delara/weather-app" target="_blank">
           An open-source code</a
-        >, by Ligia De Lara
+        >, by
+        <a
+          href="https://www.linkedin.com/in/ligia-de-lara-01627873/"
+          target="_blank"
+          >Ligia De Lara</a
+        >
       </div>
     </div>
 

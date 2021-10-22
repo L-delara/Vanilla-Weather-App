@@ -25,20 +25,29 @@ body {
   border-radius: 10px;
 }
 .card-group {
-  opacity: 0.55;
+  border-radius: 15px;
+  opacity: 0.6;
 }
 .search-bar {
   margin-top: 10px;
+  border-radius: 3px;
+}
+.btn-outline-light {
+  border-color: #9e7a7f;
+}
+.btn-outline-light:hover,
+.btn-outline-light:active,
+.btn-outline-light:focus {
+  background-color: #efb8bfc7 !important;
 }
 #search-text-input {
   opacity: 0.5;
 }
-h5 {
+.current-city {
   font-weight: 700;
 }
-.header-sun {
-  font-size: 55px;
-  color: rgba(231, 14, 6, 0.952);
+.find-me {
+  background-color: transparent;
 }
 
 .next-five {
@@ -46,12 +55,16 @@ h5 {
   font-weight: 600;
 }
 .convert-units {
-  font-size: 20px;
+  font-size: 15px;
+  font-weight: 500;
   color: #113b34c5;
+  position: relative;
+  top: -20px;
 }
 .heading-temp {
-  font-size: 50px;
+  font-size: 40px;
 }
+
 #today-description {
   font-size: 16px;
   text-transform: capitalize;
