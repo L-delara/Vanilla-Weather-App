@@ -60,7 +60,7 @@
               <img src="" alt="Clear" id="icon" class="float-left" />
               <span class="heading-temp" id="today-temp"> </span>
               <span class="convert-units"
-                ><a href="#" id="fahrenheit-link">°F</a> |
+                ><a href="#" id="fahrenheit-link" class="active">°F</a> |
                 <a href="#" id="celsius-link">°C</a></span
               >
             </p>
@@ -68,12 +68,15 @@
         </div>
         <div class="card text-center">
           <div class="card-body">
-            <h5 class="card-title" id="weather-time-now">Currently</h5>
             <p class="card-text">
               Humidity: <span id="humidity"></span>%
               <br />
               Wind: <span id="windy"></span> mph<br />
               Feels Like: <span id="feels-like"></span>°<br />
+              <span class="align-bottom" id="timestamp"
+                >Last updated:
+                <span id="weather-time-now">Currently</span></span
+              >
             </p>
           </div>
         </div>

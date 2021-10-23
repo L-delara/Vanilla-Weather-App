@@ -37,24 +37,24 @@ function formatDay(timestamp) {
 }
 
 function showTemp(response) {
-  document.querySelector("#today-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#current-city").innerHTML = response.data.name;
-  document.querySelector("#today-description").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#humidity").innerHTML =
-    response.data.main.humidity;
-  document.querySelector("#windy").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#weather-time-now").innerHTML = updateTime(
-    response.data.dt * 1000
-  );
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  let tempElement = document.querySelector("#today-temp");
+  let cityElement = document.querySelector("#current-city");
+  let descriptionElem = document.querySelector("#today-description");
+  let humidityElem = document.querySelector("#humidity");
+  let windyElem = document.querySelector("#windy");
+  let timestamp = document.querySelector("#weather-time-now");
+  let actualFeel = document.querySelector("#feels-like");
   let iconElement = document.querySelector("#icon");
+
+  tempF = response.data.main.temp;
+
+  tempElement.innerHTML = Math.round(tempF);
+  cityElement.innerHTML = response.data.name;
+  descriptionElem.innerHTML = response.data.weather[0].description;
+  humidityElem.innerHTML = response.data.main.humidity;
+  windyElem.innerHTML = Math.round(response.data.wind.speed);
+  timestamp.innerHTML = updateTime(response.data.dt * 1000);
+  actualFeel.innerHTML = Math.round(response.data.main.feels_like);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -94,5 +94,28 @@ function findMe(event) {
 }
 let findButton = document.querySelector("#find-me");
 findButton.addEventListener("click", findMe);
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempElement = document.querySelector("#today-temp");
+  let tempC = ((tempF - 32) * 5) / 9;
+  tempElement.innerHTML = Math.round(tempC);
+}
+function showfahrenheitTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let tempElement = document.querySelector("#today-temp");
+  tempElement.innerHTML = Math.round(tempF);
+}
+let tempF = null;
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showfahrenheitTemp);
 
 searchCity("Lisbon");
