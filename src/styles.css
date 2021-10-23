@@ -17,6 +17,15 @@ body {
   text-align: center;
   font-family: "Roboto", sans-serif;
 }
+p {
+  line-height: 18px;
+}
+a {
+  text-decoration: none;
+}
+.card-title {
+  margin-bottom: 0;
+}
 .app-box {
   max-width: 590px;
   margin: 30px auto;
@@ -26,7 +35,7 @@ body {
 }
 .card-group {
   border-radius: 15px;
-  opacity: 0.6;
+  opacity: 0.65;
 }
 .search-bar {
   margin-top: 10px;
@@ -59,19 +68,20 @@ body {
   top: -20px;
   text-decoration: none;
 }
-.heading-temp {
-  font-size: 40px;
-}
-#timestamp {
-  font-size: small;
-  padding-top: 20px;
-}
+
 .convert-units .active {
   cursor: default;
   color: #113b34c5;
 }
 .convert-units .active:hover {
   text-decoration: none;
+}
+.heading-temp {
+  font-size: 40px;
+}
+#timestamp {
+  font-size: small;
+  padding-top: 40px;
 }
 #today-description {
   font-size: 16px;
