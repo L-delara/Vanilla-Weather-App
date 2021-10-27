@@ -35,7 +35,31 @@ function formatDay(timestamp) {
   ];
   return days[day];
 }
+function displayForecast() {
+  let forecastElem = document.querySelector(".forecast");
 
+  let days = ["Mon", "Tues", "Wed", "Thur", "Fri"];
+
+  let forecastHTML = `<div class="card-group">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="card text-center">
+          <div class="card-body">
+            <h5 class="forecast-date">${day}</h5>
+            <img src="http://openweathermap.org/img/wn/01n@2x.png" alt="clear" width="50">
+          <br/>
+          <div class = "forecast-temps">
+          <span id="forecast-high-temp">A#</span> | <span id="forecast-low-temp">A#</span> °
+          </div>
+          </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElem.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 function showTemp(response) {
   let tempElement = document.querySelector("#today-temp");
   let cityElement = document.querySelector("#current-city");
@@ -119,3 +143,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showfahrenheitTemp);
 
 searchCity("Lisbon");
+displayForecast();

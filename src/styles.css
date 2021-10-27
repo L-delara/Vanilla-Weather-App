@@ -56,11 +56,11 @@ a {
   font-weight: 700;
 }
 
-#high-temp {
+#forecast-high-temp {
   font-weight: 600;
   font-size: 17px;
 }
-#low-temp {
+#forecast-low-temp {
   font-size: 15px;
 }
 .convert-units {
