@@ -56,9 +56,12 @@ a {
   font-weight: 700;
 }
 
-.next-five {
-  color: rgba(28, 30, 32, 0.589);
+#high-temp {
   font-weight: 600;
+  font-size: 17px;
+}
+#low-temp {
+  font-size: 15px;
 }
 .convert-units {
   font-size: 15px;
