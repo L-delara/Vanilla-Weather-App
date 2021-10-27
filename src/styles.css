@@ -57,11 +57,11 @@ a {
 }
 
 #forecast-high-temp {
-  font-weight: 600;
-  font-size: 17px;
+  font-weight: bold;
+  font-size: 16px;
 }
 #forecast-low-temp {
-  font-size: 15px;
+  font-size: 16px;
 }
 .convert-units {
   font-size: 15px;

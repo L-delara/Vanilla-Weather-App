@@ -35,7 +35,8 @@ function formatDay(timestamp) {
   ];
   return days[day];
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElem = document.querySelector(".forecast");
 
   let days = ["Mon", "Tues", "Wed", "Thur", "Fri"];
@@ -50,7 +51,7 @@ function displayForecast() {
             <img src="http://openweathermap.org/img/wn/01n@2x.png" alt="clear" width="50">
           <br/>
           <div class = "forecast-temps">
-          <span id="forecast-high-temp">A#</span> | <span id="forecast-low-temp">A#</span> °
+          <span id="forecast-high-temp">A#</span> | <span class="text-muted" id="forecast-low-temp">A#</span> °
           </div>
           </div>
           </div>`;
@@ -58,7 +59,12 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElem.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "4c9b53e4f8f5eb00df5915bdca340605";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
 function showTemp(response) {
   let tempElement = document.querySelector("#today-temp");
@@ -84,6 +90,8 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -143,4 +151,3 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showfahrenheitTemp);
 
 searchCity("Lisbon");
-displayForecast();
