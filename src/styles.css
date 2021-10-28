@@ -20,9 +20,6 @@ body {
 p {
   line-height: 18px;
 }
-a {
-  text-decoration: none;
-}
 .card-title {
   margin-bottom: 0;
 }
@@ -49,13 +46,22 @@ a {
 .btn-outline-light:focus {
   background-color: #efb8bfc7 !important;
 }
-#search-text-input {
-  opacity: 0.5;
-}
 .current-city {
   font-weight: 700;
 }
+.unit-display {
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  top: -18px;
+}
+.heading-temp {
+  font-size: 40px;
+}
 
+#search-text-input {
+  opacity: 0.5;
+}
 #forecast-high-temp {
   font-weight: bold;
   font-size: 16px;
@@ -63,31 +69,12 @@ a {
 #forecast-low-temp {
   font-size: 16px;
 }
-.convert-units {
-  font-size: 15px;
-  font-weight: 500;
-  color: #113b34c5;
-  position: relative;
-  top: -20px;
-  text-decoration: none;
-}
-
-.convert-units .active {
-  cursor: default;
-  color: #113b34c5;
-}
-.convert-units .active:hover {
-  text-decoration: none;
-}
-.heading-temp {
-  font-size: 40px;
-}
 #timestamp {
   font-size: small;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 #today-description {
-  font-size: 16px;
+  font-size: 15px;
   text-transform: capitalize;
 }
 #credits {
