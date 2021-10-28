@@ -24,48 +24,51 @@ function updateTime(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
   return days[day];
 }
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElem = document.querySelector(".forecast");
 
-  let days = ["Mon", "Tues", "Wed", "Thur", "Fri"];
-
   let forecastHTML = `<div class="card-group">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="card text-center">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="card text-center">
           <div class="card-body">
-            <h5 class="forecast-date">${day}</h5>
-            <img src="http://openweathermap.org/img/wn/01n@2x.png" alt="clear" width="50">
+            <h5 class="forecast-date">${formatDay(forecastDay.dt)}</h5>
+            <img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" alt="" width="50">
           <br/>
           <div class = "forecast-temps">
-          <span id="forecast-high-temp">A#</span> | <span class="text-muted" id="forecast-low-temp">A#</span> °
+          <span id="forecast-high-temp">${Math.round(
+            forecastDay.temp.max
+          )}°</span> | <span class="text-muted" id="forecast-low-temp">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
           </div>
           </div>
           </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElem.innerHTML = forecastHTML;
 }
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "4c9b53e4f8f5eb00df5915bdca340605";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
+
 function showTemp(response) {
   let tempElement = document.querySelector("#today-temp");
   let cityElement = document.querySelector("#current-city");
@@ -135,6 +138,7 @@ function showCelsiusTemp(event) {
   let tempC = ((tempF - 32) * 5) / 9;
   tempElement.innerHTML = Math.round(tempC);
 }
+
 function showfahrenheitTemp(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -142,6 +146,7 @@ function showfahrenheitTemp(event) {
   let tempElement = document.querySelector("#today-temp");
   tempElement.innerHTML = Math.round(tempF);
 }
+
 let tempF = null;
 
 let celsiusLink = document.querySelector("#celsius-link");
